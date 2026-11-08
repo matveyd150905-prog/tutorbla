@@ -72,24 +72,24 @@ plus.Text = "+"
 plus.TextColor3 = Color3.fromRGB(0, 0, 0)
 плюс.TextScaled = true
 plus.TextSize = 14.000
-плюс.TextWrapped = true
+plus.TextWrapped = true
 
-скорость.Название = «скорость»
-скорость.Parent = Frame
+speed.Name = "speed"
+speed.Parent = Frame
 speed.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
 speed.Position = UDim2.new(0.468421042, 0, 0.491228074, 0)
 speed.Size = UDim2.new(0, 44, 0, 28)
 speed.Font = Enum.Font.SourceSans
-speed.Текст = «1»
-скорость.TextColor3 = Color3.fromRGB(0, 0, 0)
+speed.Text = "1"
+speed.TextColor3 = Color3.fromRGB(0, 0, 0)
 speed.TextScaled = true
 speed.TextSize = 14.000
-скорость.TextWrapped = true
+speed.TextWrapped = true
 
-мой.Name = "mine"
+mine.Name = "mine"
 mine.Parent = Frame
 mine.BackgroundColor3 = Color3.fromRGB(123, 255, 247)
-мой.Position = UDim2.new(0.231578946, 0, 0.491228074, 0)
+mine.Position = UDim2.new(0.231578946, 0, 0.491228074, 0)
 mine.Size = UDim2.new(0, 45, 0, 29)
 mine.Font = Enum.Font.SourceSans
 mine.Text = "-"
@@ -107,12 +107,12 @@ closebutton.Text = "X"
 closebutton.TextSize = 30
 closebutton.Position = UDim2.new(0, 0, -1, 27)
 
-мини.Name = "minimize"
+mini.Name = "minimize"
 mini.Parent = main.Frame
 mini.BackgroundColor3 = Color3.fromRGB(192, 150, 230)
-мини.Font = "SourceSans"
+mini.Font = "SourceSans"
 mini.Size = UDim2.new(0, 45, 0, 28)
-мини.Text = "-"
+mini.Text = "-"
 mini.TextSize = 40
 mini.Position = UDim2.new(0, 44, -1, 27)
 
@@ -130,7 +130,7 @@ speeds = 1
 
 местный диктор = game:GetService("Игроки").LocalPlayer
 
-local chr = game.Игроки.LocalPlayer.Character
+local chr = game.Players.LocalPlayer.Character
 local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
 
 nowe = false
@@ -141,18 +141,18 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
  Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
 Duration = 5;
 
-Рамка.Active = true — main = gui
-Рамка.Draggable = true
+Frame.Active = true -- main = gui
+Frame.Draggable = true
 
 onof.MouseButton1Down:connect(function()
 
  if nowe == true then
  nowe = false
 
- оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,true)
- оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,true)
- оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,true)
- оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,true)
+ speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,true)
+ speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,true)
+ speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,true)
+ speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,true)
  оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,true)
  оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,true)
  оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,true)
@@ -177,29 +177,30 @@ onof.MouseButton1Down:connect(function()
 
 
  tpwalking = истина
- локальный chr = игра.Игроки.LocalPlayer.Character
- local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
- while tpwalking and hb:Wait() and chr and hum and hum.Parent do
- if hum.MoveDirection.Magnitude > 0 then
- chr:TranslateBy(hum.MoveDirection)
- end
+ локальный chr = игра.Игроки.Локальный игрок.Персонаж 
+ local hum = chr и chr: Найдите первого ребенка, который является Хисой ("Гуманоид")
+ во время tpwalking и hb: Wait() и chr, и гудит, и гудит.Родитель делает 
+ если гудит.MoveDirection.Величина > 0, затем 
+ chr:translateBy(hum.MoveDirection)
+ конец 
  end
 
  end)
- конец игры.Игроки.Локальный игрок.Персонаж.Одушевлять.Disabled = true
- local Char = game.Игроки.LocalPlayer.Character
- local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
+ конец 
+ игры.Игроки.Локальный игрок.Персонаж.Анимировать.Отключено = true 
+ локальный символ = игра.Игроки.Локальный игрок.Персонаж 
+ локальный Hum = Символ: FindFirstChildOfClass("Гуманоид") или символ: FindFirstChildOfClass("AnimationController")
 
- for i,v in next, Hum:GetPlayingAnimationTracks() do
- v:AdjustSpeed(0)
- end
- speaker.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,false)
- оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,false)
- оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,false)
- оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,false)
- оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,false)
- оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,false)
- оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,false)
+ для i, v в следующем жужжании: GetPlayingAnimationTracks() выполните
+ v: отрегулируйте скорость (0) 
+конец 
+ динамик.Персонаж.Гуманоид: SetStateEnabled(перечисление.HumanoidStateType.Восхождение, false)
+ говорящий.Персонаж.Гуманоид:SetStateEnabled(перечисление.HumanoidStateType.Выпадающий, false)
+ говорящий.Персонаж.Гуманоид: SetStateEnabled(Перечисление.HumanoidStateType.Летающий, false)
+ говорящий.Персонаж.Гуманоид: SetStateEnabled(Перечисление.HumanoidStateType.Свободное падение, false)
+ говорящий.Персонаж.Гуманоид: SetStateEnabled(перечисление.HumanoidStateType.Ввод, false)
+ говорящий.Персонаж.Гуманоид:SetStateEnabled(перечисление.HumanoidStateType.Прыгающий, false)
+ говорящий.Персонаж.Гуманоид:SetStateEnabled(Перечисление.HumanoidStateType.Приземлился, false)
  оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,false)
  оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,false)
  оратор.Персонаж.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,false)
@@ -294,9 +295,9 @@ onof.MouseButton1Down:connect(function()
  bv.velocity = Vector3.new(0,0.1,0)
  bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
  if nowe == true then
- plr.Персонаж.Humanoid.PlatformStand = true
+ plr.Character.Humanoid.PlatformStand = true
  end
- while nowe == true or game:GetService("Players").Локальный игрок.Персонаж.Humanoid.Health == 0 do
+ while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
  wait()
 
  if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
@@ -311,7 +312,7 @@ onof.MouseButton1Down:connect(function()
  end
  end
  if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
- bv.velocity = ((game.Рабочее место.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Рабочее место.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Рабочее место.CurrentCamera.CoordinateFrame.p))*speed
+ bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
  lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
  elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
  bv.velocity = ((game.Рабочее место.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Рабочее место.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Рабочее место.CurrentCamera.CoordinateFrame.p))*speed
@@ -362,14 +363,14 @@ local dis
 
 вниз.MouseButton1Down:connect(function()
  dis = down.MouseEnter:connect(function()
- пока это происходит
+ пока dis
  wait()
- игра.Игроки.Локальный игрок.Персонаж.HumanoidRootPart.CFrame = game.Игроки.Локальный игрок.Персонаж.HumanoidRootPart.CFrame * CFrame.new(0,-1,0)
+ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-1,0)
  end
  end)
 end)
 
-вниз.MouseLeave:connect(function()
+down.MouseLeave:connect(function()
  if dis then
  dis:Disconnect()
  dis = nil
@@ -379,13 +380,13 @@ end)
 
 game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(char)
  wait(0.7)
- игра.Игроки.Локальный игрок.Персонаж.Humanoid.PlatformStand = false
- game.Игроки.Локальный игрок.Персонаж.Одушевлять.Disabled = false
+ game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+ game.Players.LocalPlayer.Character.Animate.Disabled = false
 
 end)
 
 
-плюс.MouseButton1Down:connect(function()
+plus.MouseButton1Down:connect(function()
  speeds = speeds + 1
  speed.Text = speeds
  if nowe == true then
@@ -399,7 +400,7 @@ end)
 
 
  tpwalking = true
- local chr = game.Игроки.LocalPlayer.Character
+ local chr = game.Players.LocalPlayer.Character
  local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
  while tpwalking and hb:Wait() and chr and hum and hum.Parent do
  if hum.MoveDirection.Magnitude > 0 then
@@ -415,7 +416,7 @@ mine.MouseButton1Down:connect(function()
  if speeds == 1 then
  speed.Text = 'cannot be less than 1'
  wait(1)
- скорость.Текст = скорости
+ speed.Text = speeds
  else
  speeds = speeds - 1
  speed.Text = speeds
